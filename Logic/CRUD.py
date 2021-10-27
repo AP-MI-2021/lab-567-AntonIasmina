@@ -1,4 +1,4 @@
-from Domain.obiect import creeaza_obiect, get_id
+from Domain.obiect2 import get_creeaza_obiect, get_id
 
 
 def adaugare_obiect(id,nume,descriere,pret_achizitie,locatie,lista):

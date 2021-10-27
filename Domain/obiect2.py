@@ -12,6 +12,7 @@ def get_creeaza_obiect(id, nume, descriere, pret_achizitie, locatie):
 
     return lista_obiect
 
+
 def get_id(lista_obiect):
     """
     Da id-ul unui obiect

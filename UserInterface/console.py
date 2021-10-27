@@ -1,4 +1,4 @@
-from Domain.obiect import to_string
+from Domain.obiect2 import to_string
 from Logic.CRUD import adaugare_obiect, stergere_obiect, modifica_obiect
 
 
