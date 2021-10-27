@@ -1,4 +1,4 @@
-from Domain.obiect2 import get_nume, get_descriere, get_pret_achizitie, get_locatie, get_creeaza_obiect, get_id
+from Domain.obiect2 import get_nume, get_descriere, get_pret_achizitie, get_locatie, creeaza_obiect, get_id
 from Logic.CRUD import getById, adaugare_obiect, modifica_obiect, stergere_obiect
 
 

@@ -1,4 +1,4 @@
-def get_creeaza_obiect(id, nume, descriere, pret_achizitie, locatie):
+def creeaza_obiect(id, nume, descriere, pret_achizitie, locatie):
     """
     Creeaza o lista ce reprezinta un obiect
     :param id:string
@@ -61,4 +61,5 @@ def to_string(obiect):
         get_pret_achizitie(obiect),
         get_locatie(obiect)
     )
+
 
