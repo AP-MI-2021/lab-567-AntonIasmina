@@ -1,7 +1,6 @@
 def creeaza_obiect(id, nume, descriere, pret_achizitie, locatie):
     """
     Creaza un dictionar ce reprezinta un obiect
-    :param lista:
     :param id: string
     :param nume: string
     :param descriere: string

@@ -1,12 +1,12 @@
-from domain.obiect import to_string
-from logic.CRUD import adaugare_obiect, stergere_obiect, modifica_obiect
+from Domain.obiect import to_string
+from Logic.CRUD import adaugare_obiect, stergere_obiect, modifica_obiect
 
 
 def printMenu():
     print("1.Adaugare obiect:")
     print("2.Stergere obiect:")
     print("3.Modificare obiect:")
-    print("a.Afisare rezervari: ")
+    print("a.Afisare obiecte: ")
     print("x.Iesire")
 
 def ui_adaugare_obiect(lista):

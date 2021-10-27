@@ -1,5 +1,5 @@
-from domain.obiect import get_nume, get_descriere, get_pret_achizitie, get_locatie, creeaza_obiect, get_id
-from logic.CRUD import getById, adaugare_obiect, modifica_obiect, stergere_obiect
+from Domain.obiect import get_nume, get_descriere, get_pret_achizitie, get_locatie, creeaza_obiect, get_id
+from Logic.CRUD import getById, adaugare_obiect, modifica_obiect, stergere_obiect
 
 
 def test_adaugare_obiect():

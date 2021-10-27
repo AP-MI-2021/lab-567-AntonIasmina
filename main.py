@@ -1,5 +1,5 @@
-from UI.console import runMenu
-from teste.testAll import runAllTests
+from UserInterface.console import runMenu
+from Tests.testAll import runAllTests
 
 def main():
     runAllTests()
