@@ -1,3 +1,4 @@
+from Domain.obiect import creeaza_obiect
 from Domain.obiect2 import get_creeaza_obiect, get_id
 
 

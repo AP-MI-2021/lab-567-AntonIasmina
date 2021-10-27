@@ -35,7 +35,7 @@ def get_descriere(lista_obiect):
     :param lista_obiect:lst
     :return:lst
     """
-    return lista_obiect[3]
+    return lista_obiect[2]
 
 def get_pret_achizitie(lista_obiect):
     """
@@ -43,7 +43,7 @@ def get_pret_achizitie(lista_obiect):
     :param lista_obiect:lst
     :return:lst
     """
-    return lista_obiect[4]
+    return lista_obiect[3]
 
 def get_locatie(lista_obiect):
     """
@@ -51,7 +51,7 @@ def get_locatie(lista_obiect):
     :param lista_obiect:lst
     :return:lst
     """
-    return lista_obiect[5]
+    return lista_obiect[4]
 
 def to_string(obiect):
     return "id: {} ,nume: {}, descriere: {},pret achizitie: {},locatie: {}".format(
