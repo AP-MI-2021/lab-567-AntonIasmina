@@ -1,4 +1,4 @@
-from Domain.obiect2 import get_id,creeaza_obiect
+from Domain.obiect import get_id,creeaza_obiect
 
 
 
@@ -26,6 +26,7 @@ def getById(id,lista):
          if get_id(obiect) == id:
              return obiect
     return None
+
 
 def stergere_obiect(id,lista):
     '''

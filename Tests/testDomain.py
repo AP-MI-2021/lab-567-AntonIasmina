@@ -1,4 +1,4 @@
-from Domain.obiect2 import creeaza_obiect, get_id, get_nume, get_descriere, get_pret_achizitie, get_locatie
+from Domain.obiect import creeaza_obiect, get_id, get_nume, get_descriere, get_pret_achizitie, get_locatie
 
 
 def test_obiect():
