@@ -1,7 +1,8 @@
 from Domain.obiect import to_string
 from Logic.CRUD import adaugare_obiect, stergere_obiect, modifica_obiect
-from Logic.concatenare import concatenare
-from Logic.mutare import mutare_obiect
+from Logic.Concatenare import concatenare
+from Logic.Mutare import mutare_obiect
+from Logic.PretMaximLocatie import determina_pret_maxim_per_locatie
 
 
 def printMenu():
@@ -10,6 +11,7 @@ def printMenu():
     print("3.Modificare obiect:")
     print("4.Mutarea tuturor obiectelor dintr-o locație în alta.")
     print("5.Concateneaza un string citit la toate descrierile obiectelor cu prețul mai mare decât o valoare citită.")
+    print("6.Determina pretul maxim pentru fiecare locatie.")
     print("a.Afisare obiecte: ")
     print("x.Iesire")
 
@@ -43,7 +45,7 @@ def ui_modifica_obiect(lista):
         id = input ("Dati id-ul obiectului de modificat: ")
         nume = input ("Dati noul nume: ")
         descriere = input ("Dati noua descriere: ")
-        pret_achizitie = input ("Dati noul pret de achizitie: ")
+        pret_achizitie = float(input ("Dati noul pret de achizitie: "))
         locatie = input ("Dati noua locatie: ")
         print("Modificarea a fost efectuata cu succes!")
         return modifica_obiect(id, nume, descriere, pret_achizitie, locatie, lista)
@@ -60,18 +62,28 @@ def show_all(lista):
 
 
 def ui_mutare_obiect(lista):
-    locatiedata = input("Dati loctia obiectelor pe care doriti sa le mutati: ")
-    locatienoua = input("Dati noua locatie a obiectelor: ")
+    try:
+        locatiedata = input("Dati loctia obiectelor pe care doriti sa le mutati: ")
+        locatienoua = input("Dati noua locatie a obiectelor: ")
+        return mutare_obiect(lista, locatiedata, locatienoua)
+    except ValueError as ve:
+        print('Eroare:', ve)
+        return lista
 
-    return mutare_obiect(lista, locatiedata, locatienoua)
+
 
 def ui_concatenare_obiect(lista):
     sir_caractere=input("Dati sirul de caractere pe care doriti sa-l concatenati: ")
     valoare=float(input("Dati valoarea cu care doriti sa comparati pretul: "))
     print("Concatenarea a avut loc cu succes!")
 
-    return concatenare(lista,sir_caractere,valoare)
+    return concatenare(lista, sir_caractere, valoare)
 
+
+def ui_determina_pret_maxim_per_locatie(lista):
+        rezultat = determina_pret_maxim_per_locatie(lista)
+        for locatie in rezultat:
+            print("Pretul maxim la locatia {} este: {}".format(locatie, rezultat[locatie]))
 
 
 def runMenu(lista):
@@ -88,6 +100,8 @@ def runMenu(lista):
             lista = ui_mutare_obiect(lista)
         elif optiune == "5":
             lista = ui_concatenare_obiect(lista)
+        elif optiune == "6":
+            lista = ui_determina_pret_maxim_per_locatie(lista)
         elif optiune =="a":
             show_all(lista)
         elif optiune =="x":

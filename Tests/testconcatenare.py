@@ -1,6 +1,6 @@
 from Domain.obiect import get_descriere
 from Logic.CRUD import adaugare_obiect, getById
-from Logic.concatenare import concatenare
+from Logic.Concatenare import concatenare
 
 
 def test_concatenare():

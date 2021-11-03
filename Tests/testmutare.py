@@ -1,6 +1,6 @@
 from Domain.obiect import get_locatie
 from Logic.CRUD import adaugare_obiect, getById
-from Logic.mutare import mutare_obiect
+from Logic.Mutare import mutare_obiect
 
 
 def test_mutare_obiect():

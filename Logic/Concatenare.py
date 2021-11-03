@@ -6,7 +6,7 @@ def concatenare(lista,sir_caractere,valoare):
     Concatenarea unui string citit la toate descrierile obiectelor cu prețul mai mare decât o valoare citită.
     :param lista:lst
     :param sir_caractere:string
-    :param valoare: int
+    :param valoare: float
     :return:
     """
     listaNoua=[]

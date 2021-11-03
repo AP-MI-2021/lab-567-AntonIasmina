@@ -1,8 +1,8 @@
-from Domain.obiect import get_id,creeaza_obiect
+from Domain.obiect import get_id, creeaza_obiect
 
 
 
-def adaugare_obiect(id,nume,descriere,pret_achizitie,locatie,lista):
+def adaugare_obiect(id, nume, descriere, pret_achizitie, locatie, lista):
     """
     Adauga un obiect intr-o lista
     :param id: string
@@ -12,10 +12,12 @@ def adaugare_obiect(id,nume,descriere,pret_achizitie,locatie,lista):
     :param locatie: string
     :return: lista ce contine obiectele vechi+noul obiect
     """
+    if getById(id, lista) is not None:
+        raise ValueError("Exista deja id-ul acesta !Dati alt id!")
     obiect= creeaza_obiect(id, nume, descriere, pret_achizitie, locatie)
     return lista+[obiect]
 
-def getById(id,lista):
+def getById(id, lista):
     """
     Da obiectul cu id-ul dat intr-o lista
     :param id: string
@@ -28,16 +30,19 @@ def getById(id,lista):
     return None
 
 
-def stergere_obiect(id,lista):
+def stergere_obiect(id, lista):
     '''
     Sterge un obiect dintr-o lista
     :param id: string
     :param lista: lista de obiecte
     :return: lista fara obiectul sters
     '''
+    if getById(id, lista) is None:
+        raise ValueError("Nu exista niciun obiect de sters cu id-ul dat!")
+
     return[obiect for obiect in lista if get_id(obiect)!=id]
 
-def modifica_obiect(id,nume,descriere,pret_achizitie,locatie,lista):
+def modifica_obiect(id, nume, descriere, pret_achizitie, locatie, lista):
     """
     Modifica un obiect dupa id
     :param id: string
@@ -48,6 +53,8 @@ def modifica_obiect(id,nume,descriere,pret_achizitie,locatie,lista):
     :param lista: lista de obiecte
     :return: lista cu obiectul cu id-ul dat,modificat
     """
+    if getById(id, lista) is None :
+        raise ValueError("Nu exista niciun obiect cu id-ul dat!")
     lista_noua=[]
     for obiect in lista:
         if get_id(obiect)==id:

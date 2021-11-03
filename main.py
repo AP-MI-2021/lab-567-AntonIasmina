@@ -1,8 +1,10 @@
-from UserInterface.console import runMenu
+from UserInterface.console2 import runMenu2
 from Tests.testAll import runAllTests
+
+
 
 def main():
     runAllTests()
-    runMenu([])
+    runMenu2([])
 
 main()

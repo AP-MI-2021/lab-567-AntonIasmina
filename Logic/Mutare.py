@@ -9,10 +9,10 @@ def mutare_obiect(lista, locatiedata, locatieschimbata):
     :param locatieschimbata:locatia noua
     :return:lst
     """
-    if not (len(locatieschimbata) == 4) :
+    if not (len(locatieschimbata) == 4):
         raise ValueError("Locatia trebuie sa aiba exact 4 caractere.")
 
-    if not (len(locatiedata)) == 4 :
+    if not (len(locatiedata)== 4 ):
         raise ValueError("Locatia trebuie sa aiba exact 4 caractere.")
 
     ok = 0
