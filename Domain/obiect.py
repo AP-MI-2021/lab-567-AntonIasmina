@@ -8,6 +8,7 @@ def creeaza_obiect(id, nume, descriere, pret_achizitie, locatie):
     :param locatie: string
     :return: un dictionar ce contine un obiect
     """
+
     return {
         "id":id,
         "nume":nume,

@@ -9,6 +9,9 @@ def concatenare(lista,sir_caractere,valoare):
     :param valoare: float
     :return:
     """
+    if type(sir_caractere) is not str:
+        raise ValueError("Variabila string trebuie sa fie de tip str!")
+
     listaNoua=[]
     for obiect in lista :
         if get_pret_achizitie(obiect) > valoare :

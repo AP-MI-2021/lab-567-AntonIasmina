@@ -73,11 +73,16 @@ def ui_mutare_obiect(lista):
 
 
 def ui_concatenare_obiect(lista):
-    sir_caractere=input("Dati sirul de caractere pe care doriti sa-l concatenati: ")
-    valoare=float(input("Dati valoarea cu care doriti sa comparati pretul: "))
-    print("Concatenarea a avut loc cu succes!")
+    try:
+        sir_caractere=input("Dati sirul de caractere pe care doriti sa-l concatenati: ")
+        valoare=float(input("Dati valoarea cu care doriti sa comparati pretul: "))
+        print("Concatenarea a avut loc cu succes!")
 
-    return concatenare(lista, sir_caractere, valoare)
+        return concatenare(lista, sir_caractere, valoare)
+    except ValueError as ve:
+        print('Eroare', ve)
+        return lista
+
 
 
 def ui_determina_pret_maxim_per_locatie(lista):

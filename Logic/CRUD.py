@@ -14,6 +14,7 @@ def adaugare_obiect(id, nume, descriere, pret_achizitie, locatie, lista):
     """
     if getById(id, lista) is not None:
         raise ValueError("Exista deja id-ul acesta !Dati alt id!")
+
     obiect= creeaza_obiect(id, nume, descriere, pret_achizitie, locatie)
     return lista+[obiect]
 
@@ -55,6 +56,7 @@ def modifica_obiect(id, nume, descriere, pret_achizitie, locatie, lista):
     """
     if getById(id, lista) is None :
         raise ValueError("Nu exista niciun obiect cu id-ul dat!")
+
     lista_noua=[]
     for obiect in lista:
         if get_id(obiect)==id:

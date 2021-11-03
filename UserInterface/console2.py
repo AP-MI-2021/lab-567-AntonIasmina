@@ -14,8 +14,8 @@ def ui_adaugare_obiect(lista, lista_specificatii_comanda):
         print("Adaugarea a fost efectuata cu succes!")
         return adaugare_obiect(id, nume, descriere, pret_achizitie, locatie, lista)
     except ValueError as ve:
-        print('Eroare:', ve)
-    return lista
+        print('Eroare:Pret achizitie trebuie sa fie de tip float!', ve)
+        return lista
 
 
 def ui_stergere_obiect(lista, lista_specificatii_comanda):
@@ -25,8 +25,7 @@ def ui_stergere_obiect(lista, lista_specificatii_comanda):
         return stergere_obiect(id, lista)
     except ValueError as ve:
         print('Eroare:', ve)
-
-    return lista
+        return lista
 
 
 def ui_modifica_obiect(lista, lista_specificatii_comanda):
@@ -40,8 +39,7 @@ def ui_modifica_obiect(lista, lista_specificatii_comanda):
         return modifica_obiect(id, nume, descriere, pret_achizitie, locatie, lista)
     except ValueError as ve:
         print('Eroare:Nu ati introdus o valoare valida', ve)
-
-    return lista
+        return lista
 
 
 def show_all(lista):
@@ -60,12 +58,14 @@ def ui_mutare_obiect(lista, lista_specificatii_comanda):
 
 
 def ui_concatenare_obiect(lista, lista_specificatii_comanda) :
-    sir_caractere = lista_specificatii_comanda[1]
-    valoare = float(lista_specificatii_comanda[2])
-    print("Concatenarea a avut loc cu succes!")
-
-    return concatenare(lista, sir_caractere, valoare)
-
+    try:
+        sir_caractere = lista_specificatii_comanda[1]
+        valoare = float(lista_specificatii_comanda[2])
+        print("Concatenarea a avut loc cu succes!")
+        return concatenare(lista, sir_caractere, valoare)
+    except ValueError as ve:
+        print('Eroare', ve)
+        return lista
 
 
 def printMenu2():
