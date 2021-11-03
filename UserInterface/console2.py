@@ -59,21 +59,23 @@ def ui_mutare_obiect(lista, lista_specificatii_comanda):
         return lista
 
 
-def ui_concatenare_obiect(lista, lista_specificatii_comanda):
+def ui_concatenare_obiect(lista, lista_specificatii_comanda) :
     sir_caractere = lista_specificatii_comanda[1]
     valoare = float(lista_specificatii_comanda[2])
     print("Concatenarea a avut loc cu succes!")
 
     return concatenare(lista, sir_caractere, valoare)
 
-def printMenu():
+
+
+def printMenu2():
     print(
         """
-        Adaugare obiect :id_obiect,nume, descriere, pret_achizitie, locatie
-        Stergere obiect : id_obiect
-        Modificare obiect id_obiect,nume, descriere, pret achizitie, locatie
+        Adaugare obiect :id,nume, descriere, pret_achizitie, locatie
+        Stergere obiect : id
+        Modificare obiect id,nume, descriere, pret achizitie, locatie
         Muta toate obiectele dintr-o locatie in alta: locatiedata, locatienoua
-        Concateneaza un string la toate descrierile obiectelor cu un pret mai mare decat o anumita valoare : descriere, valoare" 
+        Concateneaza un string la toate descrierile obiectelor cu un pret mai mare decat o anumita valoare : sir_caractere, valoare" 
         Show all
         Iesire
         """
@@ -81,7 +83,7 @@ def printMenu():
 
 def runMenu2(lista):
         while True:
-            printMenu()
+            printMenu2()
             comenzi = input("Introduceti comenzile separate prin ';', iar detaliile pentru fiecare comanda separate prin ',': ")
             comenzi = comenzi.split(sep=";")
 
@@ -107,7 +109,7 @@ def runMenu2(lista):
                 elif lista_specificatii_comanda[0] == "Show all" :
                     show_all(lista)
 
-                elif lista_specificatii_comanda [0] == "x" :
+                elif lista_specificatii_comanda [0] == "Iesire" :
                     break
 
                 else:
