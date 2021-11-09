@@ -8,7 +8,7 @@ def creeaza_obiect(id, nume, descriere, pret_achizitie, locatie):
     :param locatie:string
     :return:o lista ce contine un obiect
     """
-    lista_obiect=[id, nume, descriere, pret_achizitie, locatie]
+    lista_obiect = [id, nume, descriere, pret_achizitie, locatie]
 
     return lista_obiect
 
@@ -21,6 +21,7 @@ def get_id(lista_obiect):
     """
     return lista_obiect[0]
 
+
 def get_nume(lista_obiect):
     """
     Da numele unui obiect
@@ -28,6 +29,7 @@ def get_nume(lista_obiect):
     :return:lst
     """
     return lista_obiect[1]
+
 
 def get_descriere(lista_obiect):
     """
@@ -37,6 +39,7 @@ def get_descriere(lista_obiect):
     """
     return lista_obiect[2]
 
+
 def get_pret_achizitie(lista_obiect):
     """
     Da pretul de achizitie de achzitie al unui obiect
@@ -44,6 +47,7 @@ def get_pret_achizitie(lista_obiect):
     :return:lst
     """
     return lista_obiect[3]
+
 
 def get_locatie(lista_obiect):
     """
@@ -53,6 +57,7 @@ def get_locatie(lista_obiect):
     """
     return lista_obiect[4]
 
+
 def to_string(obiect):
     return "id: {} ,nume: {}, descriere: {},pret achizitie: {},locatie: {}".format(
         get_id(obiect),
@@ -61,5 +66,3 @@ def to_string(obiect):
         get_pret_achizitie(obiect),
         get_locatie(obiect)
     )
-
-

@@ -1,7 +1,6 @@
 from Domain.obiect import get_id, creeaza_obiect
 
 
-
 def adaugare_obiect(id, nume, descriere, pret_achizitie, locatie, lista):
     """
     Adauga un obiect intr-o lista
@@ -15,8 +14,9 @@ def adaugare_obiect(id, nume, descriere, pret_achizitie, locatie, lista):
     if getById(id, lista) is not None:
         raise ValueError("Exista deja id-ul acesta !Dati alt id!")
 
-    obiect= creeaza_obiect(id, nume, descriere, pret_achizitie, locatie)
+    obiect = creeaza_obiect(id, nume, descriere, pret_achizitie, locatie)
     return lista+[obiect]
+
 
 def getById(id, lista):
     """
@@ -26,22 +26,23 @@ def getById(id, lista):
     :return: obiectul cu id-ul dat
     """
     for obiect in lista:
-         if get_id(obiect) == id:
-             return obiect
+        if get_id(obiect) == id:
+            return obiect
     return None
 
 
 def stergere_obiect(id, lista):
-    '''
+    """
     Sterge un obiect dintr-o lista
     :param id: string
     :param lista: lista de obiecte
     :return: lista fara obiectul sters
-    '''
+    """
     if getById(id, lista) is None:
         raise ValueError("Nu exista niciun obiect de sters cu id-ul dat!")
 
-    return[obiect for obiect in lista if get_id(obiect)!=id]
+    return[obiect for obiect in lista if get_id(obiect) != id]
+
 
 def modifica_obiect(id, nume, descriere, pret_achizitie, locatie, lista):
     """
@@ -54,13 +55,13 @@ def modifica_obiect(id, nume, descriere, pret_achizitie, locatie, lista):
     :param lista: lista de obiecte
     :return: lista cu obiectul cu id-ul dat,modificat
     """
-    if getById(id, lista) is None :
+    if getById(id, lista) is None:
         raise ValueError("Nu exista niciun obiect cu id-ul dat!")
 
-    lista_noua=[]
+    lista_noua = []
     for obiect in lista:
-        if get_id(obiect)==id:
-            obiectnou= creeaza_obiect(id, nume, descriere, pret_achizitie, locatie)
+        if get_id(obiect) == id:
+            obiectnou = creeaza_obiect(id, nume, descriere, pret_achizitie, locatie)
             lista_noua.append(obiectnou)
         else:
             lista_noua.append(obiect)

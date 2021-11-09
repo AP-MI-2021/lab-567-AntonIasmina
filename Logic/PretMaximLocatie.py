@@ -9,14 +9,11 @@ def determina_pret_maxim_per_locatie(lista):
     """
     rezultat = {}
     for obiect in lista:
-        locatie=get_locatie(obiect)
-        pret=get_pret_achizitie(obiect)
+        locatie = get_locatie(obiect)
+        pret = get_pret_achizitie(obiect)
         if locatie in rezultat:
             if pret > rezultat[locatie]:
                 rezultat[locatie] = pret
         else:
             rezultat[locatie] = pret
     return rezultat
-
-
-

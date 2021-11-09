@@ -13,34 +13,36 @@ def test_adaugare_obiect():
     assert get_pret_achizitie(getById("111", lista)) == 100
     assert get_locatie(getById("111", lista)) == "2345"
 
+
 def test_stergere_obiect():
-    lista=[]
+    lista = []
     lista = adaugare_obiect("111", "carte", "fictiune", 100, "2345", lista)
     lista = adaugare_obiect("112", "revista", "horror", 200, "2346", lista)
 
     lista = stergere_obiect("112", lista)
-    assert len(lista) ==1
+    assert len(lista) == 1
     assert getById("112", lista) is None
     assert getById("111", lista) is not None
 
+
 def test_modifica_obiect():
-    lista=[]
+    lista = []
     lista = adaugare_obiect("111", "carte", "fictiune", 100, "2345", lista)
     lista = adaugare_obiect("112", "revista", "horror", 200, "2346", lista)
 
-    lista=modifica_obiect("111", "manual", "scolar", 300, "2347", lista)
+    lista = modifica_obiect("111", "manual", "scolar", 300, "2347", lista)
 
-    obiectUpdate= getById("111", lista)
-    assert get_id(obiectUpdate) == "111"
-    assert get_nume(obiectUpdate) == "manual"
-    assert get_descriere(obiectUpdate) == "scolar"
-    assert get_pret_achizitie(obiectUpdate) == 300
-    assert get_locatie(obiectUpdate) == "2347"
+    obiectupdate = getById("111", lista)
+    assert get_id(obiectupdate) == "111"
+    assert get_nume(obiectupdate) == "manual"
+    assert get_descriere(obiectupdate) == "scolar"
+    assert get_pret_achizitie(obiectupdate) == 300
+    assert get_locatie(obiectupdate) == "2347"
 
-    obiectNonupdate= getById("112", lista)
+    obiectnonupdate = getById("112", lista)
 
-    assert get_id(obiectNonupdate) == "112"
-    assert get_nume(obiectNonupdate) == "revista"
-    assert get_descriere(obiectNonupdate) =="horror"
-    assert get_pret_achizitie(obiectNonupdate) == 200
-    assert get_locatie(obiectNonupdate) =="2346"
+    assert get_id(obiectnonupdate) == "112"
+    assert get_nume(obiectnonupdate) == "revista"
+    assert get_descriere(obiectnonupdate) == "horror"
+    assert get_pret_achizitie(obiectnonupdate) == 200
+    assert get_locatie(obiectnonupdate) == "2346"

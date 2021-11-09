@@ -12,4 +12,3 @@ def test_mutare_obiect():
 
     assert get_locatie(getById("111", lista)) == "2347"
     assert get_locatie(getById("112", lista)) == "2346"
-

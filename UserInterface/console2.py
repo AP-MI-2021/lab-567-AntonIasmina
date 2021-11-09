@@ -57,7 +57,7 @@ def ui_mutare_obiect(lista, lista_specificatii_comanda):
         return lista
 
 
-def ui_concatenare_obiect(lista, lista_specificatii_comanda) :
+def ui_concatenare_obiect(lista, lista_specificatii_comanda):
     try:
         sir_caractere = lista_specificatii_comanda[1]
         valoare = float(lista_specificatii_comanda[2])
@@ -75,50 +75,40 @@ def printMenu2():
         Stergere obiect : id
         Modificare obiect id,nume, descriere, pret achizitie, locatie
         Muta toate obiectele dintr-o locatie in alta: locatiedata, locatienoua
-        Concateneaza un string la toate descrierile obiectelor cu un pret mai mare decat o anumita valoare : sir_caractere, valoare" 
+        Concateneaza un string la toate descrierile obiectelor cu un pret mai mare decat o anumita val
+        oare : sir_caractere, valoare" 
         Show all
         Iesire
         """
     )
 
+
 def runMenu2(lista):
-        while True:
-            printMenu2()
-            comenzi = input("Introduceti comenzile separate prin ';', iar detaliile pentru fiecare comanda separate prin ',': ")
-            comenzi = comenzi.split(sep=";")
+    while True:
+        printMenu2()
+        comenzi = input("Introduceti comenzile separate prin ';', iar detaliile pentru"
+                        " fiecare comanda separate prin ',': ")
+        comenzi = comenzi.split(sep=";")
 
-            for comanda in comenzi:
-                comanda = comanda.split(sep=",")
-                lista_specificatii_comanda=[]
+        if comenzi == "Iesire":
+            break
 
-                for specificatii_comanda in comanda :
-                    lista_specificatii_comanda.append(specificatii_comanda)
-
-                if lista_specificatii_comanda[0] == "Adaugare obiect" :
-                    lista = ui_adaugare_obiect(lista, lista_specificatii_comanda)
-
-                elif lista_specificatii_comanda[0] == "Stergere obiect" :
-                    ui_stergere_obiect(lista, lista_specificatii_comanda)
-
-                elif lista_specificatii_comanda[0] == "Modificare obiect" :
-                    ui_modifica_obiect(lista, lista_specificatii_comanda)
-
-                elif lista_specificatii_comanda[0] == "Concateneaza un string la toate descrierile obiectelor cu un pret mai mare decat o anumita valoare" :
-                    ui_concatenare_obiect(lista, lista_specificatii_comanda)
-
-                elif lista_specificatii_comanda[0] == "Show all" :
-                    show_all(lista)
-
-                elif lista_specificatii_comanda [0] == "Iesire" :
-                    break
-
-                else:
-                    print("Nu ati introdus o comanda valida!"
-                          "Reincarcati.")
-
-
-
-
-
-
-
+        for comanda in comenzi:
+            comanda = comanda.split(sep=",")
+            lista_specificatii_comanda = []
+            for specificatii_comanda in comanda:
+                lista_specificatii_comanda.append(specificatii_comanda)
+            if lista_specificatii_comanda[0] == "Adaugare obiect":
+                lista = ui_adaugare_obiect(lista, lista_specificatii_comanda)
+            elif lista_specificatii_comanda[0] == "Stergere obiect":
+                ui_stergere_obiect(lista, lista_specificatii_comanda)
+            elif lista_specificatii_comanda[0] == "Modificare obiect":
+                ui_modifica_obiect(lista, lista_specificatii_comanda)
+            elif lista_specificatii_comanda[0] == "Concateneaza":
+                ui_concatenare_obiect(lista, lista_specificatii_comanda)
+            elif lista_specificatii_comanda[0] == "Show all":
+                show_all(lista)
+            elif lista_specificatii_comanda[0] == "Iesire":
+                break
+            else:
+                print("Nu ati introdus o comanda valida!Reincarcati.")

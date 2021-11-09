@@ -10,12 +10,13 @@ def creeaza_obiect(id, nume, descriere, pret_achizitie, locatie):
     """
 
     return {
-        "id":id,
-        "nume":nume,
-        "descriere":descriere,
-        "pret_achizitie":pret_achizitie,
-        "locatie":locatie
+        "id": id,
+        "nume": nume,
+        "descriere": descriere,
+        "pret_achizitie": pret_achizitie,
+        "locatie": locatie
     }
+
 
 def get_id(obiect):
     """
@@ -25,13 +26,15 @@ def get_id(obiect):
     """
     return obiect["id"]
 
+
 def get_nume(obiect):
     """
     Da numele obiectului
-    :param nume: string
+    :param obiect: string
     :return: nume obiect
     """
     return obiect["nume"]
+
 
 def get_descriere(obiect):
     """
@@ -41,6 +44,7 @@ def get_descriere(obiect):
     """
     return obiect["descriere"]
 
+
 def get_pret_achizitie(obiect):
     """
     Da pretul de achizitie al obiectului
@@ -49,6 +53,7 @@ def get_pret_achizitie(obiect):
     """
     return obiect["pret_achizitie"]
 
+
 def get_locatie(obiect):
     """
     Da locatia unui obiect
@@ -56,6 +61,7 @@ def get_locatie(obiect):
     :return: locatie obiect
     """
     return obiect["locatie"]
+
 
 def to_string(obiect):
     return "id: {} ,nume: {}, descriere: {},pret achizitie: {},locatie: {}".format(

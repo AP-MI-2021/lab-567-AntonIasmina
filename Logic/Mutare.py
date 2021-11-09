@@ -12,7 +12,7 @@ def mutare_obiect(lista, locatiedata, locatieschimbata):
     if not (len(locatieschimbata) == 4):
         raise ValueError("Locatia trebuie sa aiba exact 4 caractere.")
 
-    if not (len(locatiedata)== 4 ):
+    if not (len(locatiedata) == 4):
         raise ValueError("Locatia trebuie sa aiba exact 4 caractere.")
 
     ok = 0
@@ -23,18 +23,17 @@ def mutare_obiect(lista, locatiedata, locatieschimbata):
     if ok == 0:
         raise ValueError("Locatia data nu exista in lista.")
 
-    listaNoua = []
+    listanoua = []
     for obiect in lista:
         if get_locatie(obiect) == locatiedata:
-            obiectNou = creeaza_obiect(
+            obiectnou = creeaza_obiect(
                 get_id(obiect),
                 get_nume(obiect),
                 get_descriere(obiect),
                 get_pret_achizitie(obiect),
                 locatieschimbata
             )
-            listaNoua.append(obiectNou)
+            listanoua.append(obiectnou)
         else:
-            listaNoua.append(obiect)
-    return listaNoua
-
+            listanoua.append(obiect)
+    return listanoua
