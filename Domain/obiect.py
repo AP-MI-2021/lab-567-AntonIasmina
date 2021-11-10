@@ -1,7 +1,7 @@
-def creeaza_obiect(id, nume, descriere, pret_achizitie, locatie):
+def creeaza_obiect(id_obiect, nume, descriere, pret_achizitie, locatie):
     """
     Creaza un dictionar ce reprezinta un obiect
-    :param id: string
+    :param id_obiect: string
     :param nume: string
     :param descriere: string
     :param pret_achizitie: float
@@ -10,7 +10,7 @@ def creeaza_obiect(id, nume, descriere, pret_achizitie, locatie):
     """
 
     return {
-        "id": id,
+        "id_": id_obiect,
         "nume": nume,
         "descriere": descriere,
         "pret_achizitie": pret_achizitie,
@@ -22,9 +22,9 @@ def get_id(obiect):
     """
     Da id-ul unui obiect
     :param obiect: string
-    :return: id obiect
+    :return: id_obiect
     """
-    return obiect["id"]
+    return obiect['id_']
 
 
 def get_nume(obiect):
@@ -64,7 +64,7 @@ def get_locatie(obiect):
 
 
 def to_string(obiect):
-    return "id: {} ,nume: {}, descriere: {},pret achizitie: {},locatie: {}".format(
+    return "id_: {} ,nume: {}, descriere: {},pret achizitie: {},locatie: {}".format(
         get_id(obiect),
         get_nume(obiect),
         get_descriere(obiect),

@@ -3,6 +3,7 @@ from Tests.testCRUD import test_adaugare_obiect, test_stergere_obiect, test_modi
 from Tests.testDomain import test_obiect
 from Tests.testOrdonare import test_ordoneaza_obiecte
 from Tests.testPretMaximLocatie import test_determina_pret_maxim_per_locatie
+#from Tests.testUndoRedo import test_undo_redo
 from Tests.testmutare import test_mutare_obiect
 from Tests.testconcatenare import test_concatenare
 
@@ -17,3 +18,4 @@ def runAllTests():
     test_determina_pret_maxim_per_locatie()
     test_ordoneaza_obiecte()
     test_afisare_sume()
+    #test_undo_redo()

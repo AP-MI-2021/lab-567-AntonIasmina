@@ -1,14 +1,14 @@
-def creeaza_obiect(id, nume, descriere, pret_achizitie, locatie):
+def creeaza_obiect(id_obiect, nume, descriere, pret_achizitie, locatie):
     """
     Creeaza o lista ce reprezinta un obiect
-    :param id:string
+    :param id_:string
     :param nume:string
     :param descriere:string
     :param pret_achizitie:float
     :param locatie:string
     :return:o lista ce contine un obiect
     """
-    lista_obiect = [id, nume, descriere, pret_achizitie, locatie]
+    lista_obiect = [id_obiect, nume, descriere, pret_achizitie, locatie]
 
     return lista_obiect
 

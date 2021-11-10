@@ -4,6 +4,6 @@ from Tests.testAll import runAllTests
 
 def main():
     runAllTests()
-    runMenu([])
+    runMenu()
 
 main()
