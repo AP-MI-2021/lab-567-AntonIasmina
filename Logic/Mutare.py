@@ -1,7 +1,7 @@
 from Domain.obiect import get_locatie, get_id, get_nume, get_descriere, get_pret_achizitie, creeaza_obiect
 
 
-def mutare_obiect(lista, locatiedata, locatieschimbata, undo_lista, redo_lista):
+def mutare_obiect(lista, locatiedata, locatieschimbata):
     """
     Muta un obiect dintr-o locatie in alta:
     :param lista:lst
@@ -36,6 +36,4 @@ def mutare_obiect(lista, locatiedata, locatieschimbata, undo_lista, redo_lista):
             listanoua.append(obiectnou)
         else:
             listanoua.append(obiect)
-    undo_lista.append(lista)
-    redo_lista.clear()
     return listanoua

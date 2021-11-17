@@ -4,7 +4,7 @@ from Logic.CRUD import getById, adaugare_obiect, modifica_obiect, stergere_obiec
 
 def test_adaugare_obiect():
     lista = []
-    lista = adaugare_obiect(111, "carte", "fictiune", 100, "2345", lista, [], [])
+    lista = adaugare_obiect(111, "carte", "fictiune", 100, "2345", lista)
 
     assert len(lista) == 1
     assert get_id(getById(111, lista)) == 111
@@ -16,10 +16,10 @@ def test_adaugare_obiect():
 
 def test_stergere_obiect():
     lista = []
-    lista = adaugare_obiect(111, "carte", "fictiune", 100, "2345", lista, [], [])
-    lista = adaugare_obiect(112, "revista", "horror", 200, "2346", lista, [], [])
+    lista = adaugare_obiect(111, "carte", "fictiune", 100, "2345", lista)
+    lista = adaugare_obiect(112, "revista", "horror", 200, "2346", lista)
 
-    lista = stergere_obiect(112, lista, [], [])
+    lista = stergere_obiect(112, lista)
     assert len(lista) == 1
     assert getById(112, lista) is None
     assert getById(111, lista) is not None
@@ -27,10 +27,10 @@ def test_stergere_obiect():
 
 def test_modifica_obiect():
     lista = []
-    lista = adaugare_obiect(111, "carte", "fictiune", 100, "2345", lista, [], [])
-    lista = adaugare_obiect(112, "revista", "horror", 200, "2346", lista, [], [])
+    lista = adaugare_obiect(111, "carte", "fictiune", 100, "2345", lista)
+    lista = adaugare_obiect(112, "revista", "horror", 200, "2346", lista)
 
-    lista = modifica_obiect(111, "manual", "scolar", 300, "2347", lista, [], [])
+    lista = modifica_obiect(111, "manual", "scolar", 300, "2347", lista)
 
     obiectupdate = getById(111, lista)
     assert get_id(obiectupdate) == 111

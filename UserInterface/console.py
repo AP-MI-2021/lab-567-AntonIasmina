@@ -1,11 +1,11 @@
-from Domain.obiect import to_string, creeaza_obiect
+from Domain.obiect import to_string
 from Logic.AfisareSume import suma_pret_locatie
 from Logic.CRUD import adaugare_obiect, stergere_obiect, modifica_obiect
 from Logic.Concatenare import concatenare
 from Logic.Mutare import mutare_obiect
 from Logic.Ordonare import ordoneaza_obiecte
 from Logic.PretMaximLocatie import determina_pret_maxim_per_locatie
-from Logic.UndoRedo import do_undo, do_redo
+from Logic.UndoRedo import undocmd, redocmd
 
 
 def printMenu():
@@ -23,7 +23,10 @@ def printMenu():
     print("x.Iesire")
 
 
-def ui_adaugare_obiect(lista, undo_lista, redo_lista):
+
+
+
+def ui_adaugare_obiect(lista, undoLista, redoLista):
     try:
         id_obiect = input("Dati id-ul: ")
         nume = input("Dati nume: ")
@@ -37,16 +40,16 @@ def ui_adaugare_obiect(lista, undo_lista, redo_lista):
             raise ValueError("Pretul nu poate fi negativ.")
         locatie = input("Dati locatie: ")
         print("Adaugarea a fost efectuata cu succes!")
-        return adaugare_obiect(id_obiect, nume, descriere, pret_achizitie, locatie, lista, undo_lista, redo_lista)
+        return adaugare_obiect(id_obiect, nume, descriere, pret_achizitie, locatie, lista,undoLista, redoLista )
     except ValueError as ve:
         print('Eroare:Nu ati introdus o valoare valida', ve)
         return lista
 
 
-def ui_stergere_obiect(lista, undo_lista, redo_lista):
+def ui_stergere_obiect(lista, undoLista, redoLista):
     try:
         id_obiect = input("Dati id-ul obiectului de sters: ")
-        lista=stergere_obiect(lista, id_obiect, undo_lista, redo_lista)
+        lista=stergere_obiect(lista, id_obiect, undoLista, redoLista )
         print("Stergerea a fost efectuata cu succes!")
         return lista
     except ValueError as ve:
@@ -54,7 +57,7 @@ def ui_stergere_obiect(lista, undo_lista, redo_lista):
         return lista
 
 
-def ui_modifica_obiect(lista, undo_lista, redo_lista):
+def ui_modifica_obiect(lista, undoLista, redoLista):
     try:
         id_obiect = input("Dati id-ul obiectului de modificat: ")
         nume = input("Dati noul nume: ")
@@ -64,7 +67,7 @@ def ui_modifica_obiect(lista, undo_lista, redo_lista):
             raise ValueError("Pretul nu poate fi negativ.")
         locatie = input("Dati noua locatie: ")
         print("Modificarea a fost efectuata cu succes!")
-        return modifica_obiect(id_obiect, nume, descriere, pret_achizitie, locatie, lista, undo_lista, redo_lista)
+        return modifica_obiect(id_obiect, nume, descriere, pret_achizitie, locatie, lista, undoLista, redoLista)
     except ValueError as ve:
         print('Eroare:', ve)
         return lista
@@ -75,11 +78,11 @@ def show_all(lista):
         print(to_string(obiect))
 
 
-def ui_mutare_obiect(lista, undo_lista, redo_lista):
+def ui_mutare_obiect(lista):
     try:
         locatiedata = input("Dati loctia obiectelor pe care doriti sa le mutati: ")
         locatienoua = input("Dati noua locatie a obiectelor: ")
-        return mutare_obiect(lista, locatiedata, locatienoua, undo_lista, redo_lista)
+        return mutare_obiect(lista, locatiedata, locatienoua)
     except ValueError as ve:
         print('Eroare:', ve)
         return lista
@@ -125,37 +128,22 @@ def ui_ordoneaza_obiecte(lista):
         return lista
 
 
-def ui_undo(lista, undo_lista, redo_lista):
-    undo_rez = do_undo(undo_lista, redo_lista, lista)
-    if undo_rez is not None:
-        return undo_rez
-    return lista
-
-
-def ui_redo(lista, undo_lista, redo_lista):
-    redo_rez = do_redo(undo_lista, redo_lista, lista)
-    if redo_rez is not None:
-        return redo_rez
-    return lista
-
-
-
 def runMenu():
     lista = []
-    undo_lista = []
-    redo_lista = []
+    undoLista = []
+    redoLista = []
     while True:
         try:
             printMenu()
             optiune = input("Dati optiunea: ")
             if optiune == "1":
-                lista = ui_adaugare_obiect(lista, undo_lista, redo_lista)
+                lista = ui_adaugare_obiect(lista, undoLista, redoLista)
             elif optiune == "2":
-                lista = ui_stergere_obiect(lista, undo_lista, redo_lista)
+                lista = ui_stergere_obiect(lista, undoLista, redoLista)
             elif optiune == "3":
-                lista = ui_modifica_obiect(lista, undo_lista, redo_lista)
+                lista = ui_modifica_obiect(lista, undoLista, redoLista)
             elif optiune == "4":
-                lista = ui_mutare_obiect(lista,undo_lista, redo_lista)
+                lista = ui_mutare_obiect(lista)
             elif optiune == "5":
                 lista = ui_concatenare_obiect(lista)
             elif optiune == "6":
@@ -165,9 +153,13 @@ def runMenu():
             elif optiune == "8":
                 ui_afisare_suma_pret_locatie(lista)
             elif optiune == "u":
-                lista = ui_undo(lista, undo_lista, redo_lista)
+                if len(undoLista) == 0:
+                    print('Nu se poate face undo!')
+                lista = undocmd(lista, undoLista, redoLista)
             elif optiune == "r":
-                lista = ui_redo(lista, undo_lista, redo_lista)
+                if len(redoLista) == 0:
+                    print('Nu se poate face redo!')
+                lista = redocmd(lista, undoLista, redoLista)
             elif optiune == "a":
                 show_all(lista)
             elif optiune == "x":
