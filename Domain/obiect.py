@@ -8,7 +8,8 @@ def creeaza_obiect(id_obiect, nume, descriere, pret_achizitie, locatie):
     :param locatie: string
     :return: un dictionar ce contine un obiect
     """
-
+    if len(locatie) != 4:
+        raise ValueError("Locatia trebuie sa fie de 4 caractere!")
     return {
         "id_": id_obiect,
         "nume": nume,
@@ -24,7 +25,7 @@ def get_id(obiect):
     :param obiect: string
     :return: id_obiect
     """
-    return obiect['id_']
+    return obiect["id_"]
 
 
 def get_nume(obiect):
